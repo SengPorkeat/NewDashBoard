@@ -30,7 +30,7 @@ export function SportClub() {
   const [confirmText, setConfirmText] = useState("");
   const [successText, setSuccessText] = useState("");
 
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL.replace(/^http:/, "https:");
   const endPoint = import.meta.env.VITE_ALLSPORT_URL;
   const apiUrl = `${baseUrl}${endPoint}`;
   const adminToken = import.meta.env.VITE_ADMIN_TOKEN;
@@ -44,6 +44,7 @@ export function SportClub() {
       let nextUrl = nextPage;
 
       while (nextUrl) {
+        nextUrl = nextUrl.replace(/^http:/, "https:");
         const response = await fetch(nextUrl);
         const data = await response.json();
         allClubs = [...allClubs, ...data.results];
