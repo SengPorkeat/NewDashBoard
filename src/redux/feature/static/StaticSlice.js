@@ -9,7 +9,8 @@ const initialState = {
   error: null,
 };
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+// const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_BASE_URL.replace(/^http:/, "https:");
 const endPoint = import.meta.env.VITE_ALLSPORT_URL;
 const apiUrl = `${baseUrl}${endPoint}`;
 
