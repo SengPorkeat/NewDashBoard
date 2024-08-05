@@ -21,6 +21,7 @@ export const fetchStatics = createAsyncThunk(
     let nextPage = apiUrl;
 
     while (nextPage) {
+      nextPage = nextPage.replace(/^http:/, "https:");
       const response = await fetch(nextPage);
       const data = await response.json();
       console.log("API Response:", data);
